@@ -1,0 +1,73 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+.contrib-form{
+  width: 100%;
+}
+.contrib-form > div {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.contrib-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-weight: 500;
+}
+
+/* ensure inputs fill available width when stacked */
+.contrib-form label input[type="text"],
+.contrib-form label textarea,
+.contrib-form label select {
+  width: 100%;
+  min-width: 0;
+  flex: none;
+}
+
+/* checkbox label keeps checkbox inline with its text */
+.checkbox-label {
+  display: flex;
+  flex-direction: row !important;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.contrib-form button {
+  transition: color 0.18s, background-color 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+
+/* enabled — use theme "active link" color */
+.contrib-form button:enabled {
+  color: #00055c; /* theme purple */
+  border-color: rgba(100,108,255,0.12);
+  background-color: transparent;
+}
+
+/* hover / focus for enabled */
+.contrib-form button:enabled:hover,
+.contrib-form button:enabled:focus {
+  background-color: rgba(100,108,255,0.06);
+  box-shadow: 0 0 0 4px rgba(100,108,255,0.04);
+}
+
+/* disabled — keep current color, reduce emphasis */
+.contrib-form button:disabled {
+  color: currentColor;
+  opacity: 0.65;
+  cursor: not-allowed;
+  background-color: rgba(0,0,0,0.03);
+  border-color: transparent;
+}
+
+/* stronger border specifically for dark mode to ensure sufficient contrast */
+@media (prefers-color-scheme: dark) {
+  .contrib-form button:enabled {
+    color: #aabfff;
+    border-color: rgba(100,108,255,0.36);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.02);
+  }
+}
